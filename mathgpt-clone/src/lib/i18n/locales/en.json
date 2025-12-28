@@ -1,0 +1,146 @@
+{
+  "common": {
+    "appName": "MathGPT",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All",
+    "none": "None",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "videoGallery": "Video Gallery",
+    "practiceTests": "Practice Tests",
+    "chat": "AI Chat",
+    "profile": "Profile",
+    "settings": "Settings",
+    "newChat": "New Chat",
+    "recentChats": "Recent Chats"
+  },
+  "subjects": {
+    "math": "MathGPT",
+    "physics": "PhysicsGPT",
+    "chemistry": "ChemGPT",
+    "accounting": "AccountingGPT"
+  },
+  "home": {
+    "title": "Learn Math with AI-Powered Videos",
+    "subtitle": "Create engaging video explanations for any STEM concept. Just ask a question and get a personalized video tutorial.",
+    "createVideo": "Create Video",
+    "exploreGallery": "Explore Gallery",
+    "features": {
+      "aiContent": {
+        "title": "AI-Generated Content",
+        "description": "Our AI creates step-by-step explanations tailored to your question."
+      },
+      "videoExplanations": {
+        "title": "Video Explanations",
+        "description": "Watch animated videos with voiceover explaining each concept."
+      },
+      "multipleSubjects": {
+        "title": "Multiple Subjects",
+        "description": "Math, Physics, Chemistry, and Accounting - all in one place."
+      }
+    }
+  },
+  "videoCreator": {
+    "title": "Create An Explainer Video",
+    "subtitle": "Create engaging video explanations for any STEM concept with MathGPT",
+    "inputPlaceholder": "Type your question here...",
+    "mathInput": "Math Input",
+    "uploadHint": "Drag & drop or click to add images or PDF",
+    "uploadFormats": "Supports JPG, PNG, GIF, and PDF files",
+    "generating": "Generating video...",
+    "tip": "Tip: You can use the Math Input button to insert mathematical formulas using LaTeX notation."
+  },
+  "gallery": {
+    "title": "Explore MathGPT Videos",
+    "noVideos": "No videos yet. Create your first explainer video!",
+    "timeAgo": {
+      "justNow": "just now",
+      "minutesAgo": "{{count}} minute ago",
+      "minutesAgo_plural": "{{count}} minutes ago",
+      "hoursAgo": "{{count}} hour ago",
+      "hoursAgo_plural": "{{count}} hours ago",
+      "daysAgo": "{{count}} day ago",
+      "daysAgo_plural": "{{count}} days ago"
+    }
+  },
+  "chat": {
+    "title": "AI Math Tutor",
+    "placeholder": "Type your question...",
+    "welcome": "How can I help you?",
+    "welcomeSubtitle": "Ask me any math question!",
+    "thinking": "Thinking..."
+  },
+  "auth": {
+    "login": "Sign In",
+    "signup": "Sign Up",
+    "logout": "Sign Out",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "orContinueWith": "Or continue with",
+    "google": "Sign in with Google",
+    "passwordHint": "Must be at least 6 characters"
+  },
+  "profile": {
+    "title": "Profile",
+    "myVideos": "My Videos",
+    "favorites": "Favorites",
+    "notes": "Notes",
+    "progress": "Progress",
+    "settings": "Settings"
+  },
+  "video": {
+    "views": "{{count}} view",
+    "views_plural": "{{count}} views",
+    "likes": "{{count}} like",
+    "likes_plural": "{{count}} likes",
+    "comments": "{{count}} comment",
+    "comments_plural": "{{count}} comments",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites",
+    "addNote": "Add note",
+    "shareVideo": "Share video"
+  },
+  "comments": {
+    "title": "Comments",
+    "placeholder": "Write a comment...",
+    "noComments": "No comments yet. Be the first!",
+    "reply": "Reply",
+    "delete": "Delete"
+  },
+  "notes": {
+    "title": "Notes",
+    "placeholder": "Write your notes here...",
+    "saved": "Note saved",
+    "timestamp": "At {{time}}"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文"
+  }
+}
