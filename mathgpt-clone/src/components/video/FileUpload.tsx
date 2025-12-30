@@ -13,18 +13,52 @@ interface UploadedFile {
 
 interface FileUploadProps {
   onFilesChange?: (files: UploadedFile[]) => void
+  onOcrResult?: (text: string) => void
   maxFiles?: number
   className?: string
 }
 
 export function FileUpload({
   onFilesChange,
+  onOcrResult,
   maxFiles = 5,
   className,
 }: FileUploadProps) {
   const [files, setFiles] = React.useState<UploadedFile[]>([])
   const [isDragOver, setIsDragOver] = React.useState(false)
+  const [isProcessing, setIsProcessing] = React.useState(false)
   const inputRef = React.useRef<HTMLInputElement>(null)
+
+  // OCR 识别图片中的数学公式
+  const processImageOCR = async (file: File) => {
+    if (!onOcrResult) return
+
+    setIsProcessing(true)
+    try {
+      const formData = new FormData()
+      formData.append("file", file)
+
+      const response = await fetch("/api/ocr", {
+        method: "POST",
+        body: formData,
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        if (data.text || data.formulas?.length > 0) {
+          const result = [
+            data.text,
+            ...(data.formulas || []).map((f: string) => `$${f}$`)
+          ].filter(Boolean).join("\n")
+          onOcrResult(result)
+        }
+      }
+    } catch (err) {
+      console.error("OCR error:", err)
+    } finally {
+      setIsProcessing(false)
+    }
+  }
 
   const acceptedTypes = {
     "image/jpeg": [".jpg", ".jpeg"],
@@ -53,6 +87,8 @@ export function FileUpload({
 
         if (isImage) {
           uploadedFile.preview = URL.createObjectURL(file)
+          // 对图片进行 OCR 识别
+          processImageOCR(file)
         }
 
         newFiles.push(uploadedFile)
@@ -62,7 +98,7 @@ export function FileUpload({
       setFiles(updatedFiles)
       onFilesChange?.(updatedFiles)
     },
-    [files, maxFiles, onFilesChange]
+    [files, maxFiles, onFilesChange, processImageOCR]
   )
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -137,14 +173,18 @@ export function FileUpload({
         />
         <div className="flex flex-col items-center gap-3">
           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-            <Upload className="h-6 w-6 text-primary" />
+            {isProcessing ? (
+              <div className="h-6 w-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <Upload className="h-6 w-6 text-primary" />
+            )}
           </div>
           <div>
             <p className="text-sm font-medium">
-              Drag & drop or click to add images or PDF
+              {isProcessing ? "正在识别图片中的数学公式..." : "拖放或点击上传图片/PDF"}
             </p>
             <p className="text-xs text-muted-foreground mt-1">
-              Supports JPG, PNG, GIF, and PDF files
+              支持 JPG, PNG, GIF, PDF 格式，上传图片后自动识别数学公式
             </p>
           </div>
         </div>
